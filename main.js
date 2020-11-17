@@ -26,7 +26,7 @@ const toDoApp = (userInput) => {
 
 toDoApp()
 
-const handleMenu = function(userInput) {
+const handleMenu = (userInput) => {
   if (userInput === '6') {
     console.clear();
     console.log('Quitting!')
@@ -54,8 +54,6 @@ const handleMenu = function(userInput) {
   } else if(userInput === `1`){
     console.clear();
     interface.question('What should go on your list?', add)
-    // console.log('Please enter "6" to quit')
-    // interface.question(menu, handleMenu)
   } else {
     console.clear();
     console.log('Type 6 to quit!');
@@ -63,7 +61,7 @@ const handleMenu = function(userInput) {
   }
 };
 
-const add = function(userInput) {
+const add = (userInput) => {
   const toDo = {
     isComplete: false,
     priority: 2,
