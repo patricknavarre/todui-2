@@ -1,9 +1,5 @@
 const readline = require('readline');
 const { todos } = require('./data.js');
-// const database = require('./data.js');
-
-
-
 
 const interface = readline.createInterface({
   input: process.stdin,
@@ -29,7 +25,6 @@ const toDoApp = (userInput) => {
 } 
 
 toDoApp()
-
 
 const handleMenu = function(userInput) {
   if (userInput === '6') {
@@ -68,31 +63,18 @@ const handleMenu = function(userInput) {
   }
 };
 
-// const toDo = {
-//   isComplete: false
-//   priority: 2
-//   text: userInput
-// }
-
-
 const add = function(userInput) {
   const toDo = {
     isComplete: false,
     priority: 2,
     text: userInput
   }
-  // console.clear()
-  // console.log('* ' + userInput) 
     todos.push(toDo)
   for (const todo of todos) {
     console.log('* ' + todo.text)
   }
   interface.question(menu, handleMenu);
-  
 }
-// interface.close()
-
-
 
 console.clear();
 interface.question(menu, handleMenu);
