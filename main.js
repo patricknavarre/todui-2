@@ -1,4 +1,8 @@
 const readline = require('readline');
+const { todos } = require('./data.js');
+// const database = require('./data.js');
+
+
 
 
 const interface = readline.createInterface({
@@ -18,16 +22,77 @@ Your options are:
 
 `;
 
-const handleMenu = function(cmd) {
-  if (cmd === '6') {
+const toDoApp = (userInput) => { 
+  for (const todo of todos) {
+    console.log('* '+ todo.text)
+  }
+} 
+
+toDoApp()
+
+
+const handleMenu = function(userInput) {
+  if (userInput === '6') {
+    console.clear();
     console.log('Quitting!')
     interface.close();
+  } else if(userInput === `5`){
+    console.clear();
+    console.log('That is not available yet...')
+    console.log('Please enter "6" to quit')
+    interface.question(menu, handleMenu)
+  } else if(userInput === `4`){
+    console.clear();
+    console.log('That is not available yet...')
+    console.log('Please enter "6" to quit')
+    interface.question(menu, handleMenu)
+  } else if(userInput === `3`){
+    console.clear();
+    console.log('That is not available yet...')
+    console.log('Please enter "6" to quit')
+    interface.question(menu, handleMenu)
+  } else if(userInput === `2`){
+    console.clear();
+    console.log('That is not available yet...')
+    console.log('Please enter "6" to quit')
+    interface.question(menu, handleMenu)
+  } else if(userInput === `1`){
+    console.clear();
+    interface.question('What should go on your list?', add)
+    // console.log('Please enter "6" to quit')
+    // interface.question(menu, handleMenu)
   } else {
     console.clear();
     console.log('Type 6 to quit!');
     interface.question(menu, handleMenu);
   }
 };
+
+// const toDo = {
+//   isComplete: false
+//   priority: 2
+//   text: userInput
+// }
+
+
+const add = function(userInput) {
+  const toDo = {
+    isComplete: false,
+    priority: 2,
+    text: userInput
+  }
+  // console.clear()
+  // console.log('* ' + userInput) 
+    todos.push(toDo)
+  for (const todo of todos) {
+    console.log('* ' + todo.text)
+  }
+  interface.question(menu, handleMenu);
+  
+}
+// interface.close()
+
+
 
 console.clear();
 interface.question(menu, handleMenu);
